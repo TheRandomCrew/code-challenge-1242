@@ -1,5 +1,6 @@
 import fs from "fs";
 import readline from "readline";
+import { Interface } from "readline";
 import { writeStatisticsToFile } from "../../interface/output";
 import { Statistics } from "../names";
 
@@ -23,22 +24,17 @@ const readFile = (filePath: fs.PathLike) => {
 const lineReader = (
   filePath: fs.PathLike,
   onLine: (line: string) => void,
-  callBack: () => Statistics
-) => {
-  const lineReader = readline.createInterface({
-    input: readFile(filePath),
-  });
-
-  lineReader.on("line", onLine);
-  lineReader.on("close", async function () {
-    const statistics = callBack();
-    const output = await writeStatisticsToFile(statistics);
-    await writeFile("./output.txt", output);
-    console.log("Please check your output file");
-    process.exit(0);
-  });
-
-  return lineReader;
+): Promise<Interface> => {
+  return new Promise((resolve, reject) => {  
+    const lineReader = readline.createInterface({
+      input: readFile(filePath),
+    });
+    
+    lineReader.on("line", onLine);
+    lineReader.on("close", async function () {
+      resolve(lineReader);
+    });
+  })
 };
 
-export { lineReader };
+export { lineReader, writeFile };
