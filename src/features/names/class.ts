@@ -61,7 +61,7 @@ export class ModifiedNamesList {
 
   addUniqueFullName(firstName: string, lastName: string) {
     const isUnique = this.uniqueFullNames.findIndex((fullName) => fullName.firstName === firstName || fullName.lastName === lastName) === -1;
-    debugger;
+
     if (isUnique) {
       this.uniqueFullNames.push({ firstName, lastName });
     }
