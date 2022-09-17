@@ -1,6 +1,6 @@
 import { NamesState } from ".";
 
-export default class Statistics {
+export class Statistics {
   fullNames: NamesState = {};
   firstNames: NamesState = {};
   lastNames: NamesState = {};
@@ -53,5 +53,17 @@ export default class Statistics {
 
   get top10FirstNames() {
     return Statistics.top10(this.firstNames);
+  }
+}
+
+export class ModifiedNamesList {
+  uniqueFullNames: { firstName: string, lastName: string }[] = [];
+
+  addUniqueFullName(firstName: string, lastName: string) {
+    const isUnique = this.uniqueFullNames.findIndex((fullName) => fullName.firstName === firstName || fullName.lastName === lastName) === -1;
+    debugger;
+    if (isUnique) {
+      this.uniqueFullNames.push({ firstName, lastName });
+    }
   }
 }

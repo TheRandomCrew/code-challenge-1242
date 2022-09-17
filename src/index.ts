@@ -1,6 +1,6 @@
 import process from "node:process";
 import { lineReader } from "./features/files";
-import { onLine, Statistics } from "./features/names";
+import { onLine, Statistics, ModifiedNamesList } from "./features/names";
 import { checkArgs } from "./interface/cli";
 import { terminate } from "./interface/error/process";
 
@@ -10,6 +10,7 @@ checkArgs(args);
 
 // create object to pass to inLine, it would have state and methods to add names and process them
 const statistics = new Statistics();
+const modifiedNamesList = new ModifiedNamesList();
 
 const processFile = lineReader(
   args[2],
@@ -18,10 +19,11 @@ const processFile = lineReader(
       line,
       statistics.addFullName.bind(statistics),
       statistics.addFirstName.bind(statistics),
-      statistics.addLastName.bind(statistics)
+      statistics.addLastName.bind(statistics),
+      modifiedNamesList.addUniqueFullName.bind(modifiedNamesList),
     );
   },
-  () =>  statistics
+  () => statistics
 );
 
 const exitHandler = terminate(processFile, {

@@ -1,11 +1,12 @@
-import Statistics from "./class";
+import { Statistics, ModifiedNamesList } from "./class";
 type NamesState = { [key: string]: number };
 
 const onLine = (
   line: string,
   addFullName: (fullName: string) => void,
   addFirstName: (fullName: string) => void,
-  addLastName: (fullName: string) => void
+  addLastName: (fullName: string) => void,
+  addUniqueFullName: (firstName: string, lastName: string) => void
 ) => {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#using_match
   const matches = line.match(/(.*), (.*) -- .*/); // Notice I am not capturing the last word
@@ -16,6 +17,7 @@ const onLine = (
   addFirstName(firstName);
   addLastName(lastName);
   addFullName(fullName);
+  addUniqueFullName(firstName, lastName);
 };
 
-export { onLine, NamesState, Statistics };
+export { onLine, NamesState, Statistics, ModifiedNamesList };
