@@ -1,0 +1,29 @@
+
+Unique full name count: 49157
+Unique first name count: 3007
+Unique last name count: 475
+  
+Top 10 last names:
+Barton: 143
+Lang: 136
+Ortiz: 135
+Hilll: 134
+Hills: 130
+Terry: 129
+Becker: 128
+Johns: 128
+Romaguera: 128
+Batz: 127
+  
+Top 10 first names:
+Tara: 34
+Andreanne: 32
+Stephania: 31
+Keon: 31
+Manley: 30
+Kayley: 30
+Ulices: 30
+Summer: 30
+Kaycee: 30
+Milo: 29
+  
