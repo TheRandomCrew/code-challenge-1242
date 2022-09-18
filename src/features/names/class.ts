@@ -57,11 +57,31 @@ export class Statistics {
 }
 
 export class ModifiedNamesList {
+  static #MAX_NUMBER_OF_NAMES: number = 25;
   uniqueFullNames: { firstName: string, lastName: string }[] = [];
 
   addUniqueFullName(firstName: string, lastName: string) {
     const isUnique = this.uniqueFullNames.findIndex((fullName) => fullName.firstName === firstName || fullName.lastName === lastName) === -1;
 
     if (isUnique) this.uniqueFullNames.push({ firstName, lastName });
+  }
+
+  static #getRandomCharCode(name: string) {
+    const letters = [...name];
+
+    return letters.map((letter) => letter.charCodeAt(0))[Math.floor(Math.random() * letters.length)];
+  }
+
+  static mixNames(listOfNames: { firstName: string, lastName: string }[]) {
+    const copy = [...listOfNames].sort((a, b) => this.#getRandomCharCode(a.firstName) - this.#getRandomCharCode(b.firstName));
+    const secondCopy = [...listOfNames].sort((a, b) => this.#getRandomCharCode(b.lastName) - this.#getRandomCharCode(a.lastName));
+
+    const result = [];
+
+    for (let i = 0; i < copy.length && i < this.#MAX_NUMBER_OF_NAMES; i++) { 
+      result.push(`${copy[i].firstName} ${secondCopy[i].lastName}`);
+    }
+
+    return result;
   }
 }
