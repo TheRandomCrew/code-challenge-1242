@@ -1,6 +1,11 @@
 import { ModifiedNamesList } from './../../features/names/class';
 import { Statistics } from "../../features/names";
 
+/**
+ * Get a Statistics instance and returns a formatted String with the statistics of the names of the list
+ * @param {Statistics} statistics 
+ * @returns 
+ */
 const writeStatisticsToFile = (statistics: Statistics) => {
   const cardinality = `
 Unique full name count: ${statistics.uniqueFullNamesCount}
@@ -26,6 +31,10 @@ ${statistics.top10FirstNames
   return resultOutput;
 };
 
+/**
+ * Receive a ModifiedNamesList instance and returns a formatted String with the names mixes
+ * @param {ModifiedNamesList} modifiedNamesList 
+ */
 const writeModifiedNamesToFile = (modifiedNamesList: ModifiedNamesList) => {
   return `Modified names list: \n${ ModifiedNamesList.mixNames(modifiedNamesList.uniqueFullNames).join('\n') }` 
 }

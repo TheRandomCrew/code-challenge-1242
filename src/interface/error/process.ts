@@ -1,5 +1,10 @@
 import { Interface } from "readline";
 
+/**
+ * Terminate the process in the user's terminal
+ * @param {Interface} lineReader 
+ * @param {{ coredump: boolean, timeout: number }} options 
+ */
 function terminate(
   lineReader: Interface,
   options = { coredump: false, timeout: 500 }

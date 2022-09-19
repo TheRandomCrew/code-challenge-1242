@@ -1,5 +1,11 @@
 import { NamesState } from ".";
 
+/**
+ * Receive a list with numbers and returns some statistics about that names, how is:
+ * - The cardinality (count of unique items) of each the three sets of full, last, and first names
+ * - The ten most common last names sorted in descending order, including the count of these names.
+ * - The ten most common first names sorted in descending order, including the count of these names.
+ */
 export class Statistics {
   fullNames: NamesState = {};
   firstNames: NamesState = {};
@@ -14,7 +20,7 @@ export class Statistics {
   }
 
   /**
-   * Receive an object whose values are numbers, and return a sorted descending list with the top 10 bigger values
+   * Receive an object whose values are numbers, and return a sorted descending list of top 10 bigger values
    * @param {NamesState} object
    */
   static top10(object: NamesState): [string, number][] {
@@ -48,7 +54,7 @@ export class Statistics {
 
   /**
    * Create a new key in the lastNames' state, with the number of times that the key have been added to the object
-   * @param {string} firstName 
+   * @param {string} lastName 
    */
   addLastName(lastName: string) {
     if (!this.lastNames[lastName]) this.lastNames[lastName] = 0;
@@ -77,26 +83,36 @@ export class Statistics {
   }
 
   /**
-   * Get a descending list the top10 more used lastNames
+   * Get a descending list of top 10 more used lastNames
    */
   get top10LastNames() {
     return Statistics.top10(this.lastNames);
   }
 
+  /**
+   * Get a descending list of top 10 more used FirstNames
+   */
   get top10FirstNames() {
     return Statistics.top10(this.firstNames);
   }
 }
 
+/**
+ * Create a list with unique names and mix it, creating a list of new unique names
+ */
 export class ModifiedNamesList {
   static #maxNumberOfNames: number;
+  uniqueFullNames: { firstName: string, lastName: string }[] = [];
 
   constructor(limit?: number) {
     ModifiedNamesList.#maxNumberOfNames = limit || 25; 
   }
 
-  uniqueFullNames: { firstName: string, lastName: string }[] = [];
-
+  /**
+   * Add a fullName on the list just in case the firstName and the lastName weren't already on the list
+   * @param {string} firstName 
+   * @param {string} lastName 
+   */
   addUniqueFullName(firstName: string, lastName: string) {
     const isRepeated =
       this.uniqueFullNames.some(
@@ -109,6 +125,10 @@ export class ModifiedNamesList {
     if (!isRepeated && !isListCompleted) this.uniqueFullNames.push({ firstName, lastName });
   }
 
+  /**
+   * Combine the list of names returning a new list  mix of firstNames with lastNames
+   * @param {{ firstName: string, lastName: string }} listOfNames 
+  */
   static mixNames(listOfNames: { firstName: string, lastName: string }[]): string[] {
     if (!listOfNames.length) return [];
 
