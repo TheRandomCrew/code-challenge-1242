@@ -1,5 +1,5 @@
-import { Statistics, ModifiedNamesList } from "./class";
-type NamesState = { [key: string]: number };
+import { Statistics, ModifiedNamesList } from './class'
+interface NamesState { [key: string]: number }
 
 /**
  * Receive a line, get the lastName and firstName and pass it through some callbacks
@@ -15,17 +15,17 @@ const onLine = (
   addFirstName: (fullName: string) => void,
   addLastName: (fullName: string) => void,
   addUniqueFullName: (firstName: string, lastName: string) => void
-) => {
+): void => {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#using_match
-  const matches = line.match(/(.*), (.*) -- .*/); // Notice I am not capturing the last word
-  if (!matches) return;
-  const [input, lastName, firstName] = matches; // Check what (.*) captures
+  const matches = line.match(/(.*), (.*) -- .*/) // Notice I am not capturing the last word
+  if (matches == null) return
+  const [input, lastName, firstName] = matches // Check what (.*) captures
 
-  const fullName = input.split(" -- ")[0].trim();
-  addFirstName(firstName);
-  addLastName(lastName);
-  addFullName(fullName);
-  addUniqueFullName(firstName, lastName);
-};
+  const fullName = input.split(' -- ')[0].trim()
+  addFirstName(firstName)
+  addLastName(lastName)
+  addFullName(fullName)
+  addUniqueFullName(firstName, lastName)
+}
 
-export { onLine, NamesState, Statistics, ModifiedNamesList };
+export { onLine, NamesState, Statistics, ModifiedNamesList }
