@@ -3,7 +3,7 @@ import { lineReader, writeFile } from "./features/files";
 import { onLine, Statistics, ModifiedNamesList } from "./features/names";
 import { checkArgs } from "./interface/cli";
 import { terminate } from "./interface/error/process";
-import { writeStatisticsToFile } from "./interface/output";
+import { writeModifiedNamesToFile, writeStatisticsToFile } from "./interface/output";
 
 const args = process.argv;
 
@@ -25,7 +25,8 @@ lineReader(
     );
   }
 ).then(async (lineReader) => {
-  const output = writeStatisticsToFile(statistics);
+  let output = writeStatisticsToFile(statistics);
+  output += `\n${writeModifiedNamesToFile(modifiedNamesList)}`;
   await writeFile("./output.txt", output);
   console.log("Please check your output file");
 
