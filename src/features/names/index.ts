@@ -1,6 +1,14 @@
 import { Statistics, ModifiedNamesList } from "./class";
 type NamesState = { [key: string]: number };
 
+/**
+ * Receive a line, get the lastName and firstName and pass it through some callbacks
+ * @param {string } line 
+ * @param {(fullName: string) => void} addFullName 
+ * @param {(fullName: string) => void} addFirstName 
+ * @param {(fullName: string) => void} addLastName 
+ * @param {(firstName: string, lastName: string) => void} addUniqueFullName 
+ */
 const onLine = (
   line: string,
   addFullName: (fullName: string) => void,

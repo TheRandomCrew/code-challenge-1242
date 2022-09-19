@@ -14,7 +14,6 @@ const N = Number(process.argv[3]?.split("N=")[1]) ?? null;
 
 checkArgs(args);
 
-// create object to pass to inLine, it would have state and methods to add names and process them
 const statistics = new Statistics();
 const modifiedNamesList = new ModifiedNamesList(N);
 

@@ -1,3 +1,6 @@
+/**
+ * Show a informative text on the user's console about how to use the tool
+ */
 const getHelpText = () => {
   const helpText = `
 code-challenge-1242 is a simple cli program to demonstrate how to handle files using streams.
@@ -11,6 +14,9 @@ usage:
   console.log(helpText);
 };
 
+/**
+ * Validate if the user is passing the needed args to run the tool
+ */
 const checkArgs = (args: string[]) => {
   if (args.length < 3) {
     getHelpText();
