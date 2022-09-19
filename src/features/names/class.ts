@@ -76,7 +76,7 @@ export class ModifiedNamesList {
   static mixNames(listOfNames: { firstName: string, lastName: string }[]): string[] {
     const result: string[] = [];
 
-    for (let index = 0; index < listOfNames.length - 1; index++) {
+    for (let index = 0; index < listOfNames.length; index++) {
       const firstName = listOfNames.slice(index)[0].firstName;
       const lastName = listOfNames.slice(index - 1)[0].lastName;
       
