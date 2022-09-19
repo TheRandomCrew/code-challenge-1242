@@ -11,14 +11,14 @@ Unique last name count: ${statistics.uniqueLastNamesCount}
   const top10LastNames = `
 Top 10 last names:
 ${statistics.top10LastNames
-  .map(([name, count], index) => `${index + 1}.\t${name}: ${count}`)
+  .map(([name, count]) => `${name}: ${count}`)
   .join("\n")}
   `;
 
   const top10FirstNames = `
 Top 10 first names:
 ${statistics.top10FirstNames
-  .map(([name, count], index) => `${index + 1}.\t${name}: ${count}`)
+  .map(([name, count]) => `${name}: ${count}`)
   .join("\n")}
   `;
 
@@ -27,7 +27,7 @@ ${statistics.top10FirstNames
 };
 
 const writeModifiedNamesToFile = (modifiedNamesList: ModifiedNamesList) => {
-  return `Modified names list: \n${ ModifiedNamesList.mixNames(modifiedNamesList.uniqueFullNames).map((name, index) => `${index + 1}.\t${name}`).join('\n') }` 
+  return `Modified names list: \n${ ModifiedNamesList.mixNames(modifiedNamesList.uniqueFullNames).join('\n') }` 
 }
 
 export { writeStatisticsToFile, writeModifiedNamesToFile };

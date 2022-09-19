@@ -4,52 +4,52 @@ Unique first name count: 3007
 Unique last name count: 475
   
 Top 10 last names:
-1.	Barton: 143
-2.	Lang: 136
-3.	Ortiz: 135
-4.	Hilll: 134
-5.	Hills: 130
-6.	Terry: 129
-7.	Becker: 128
-8.	Johns: 128
-9.	Romaguera: 128
-10.	Batz: 127
+Barton: 143
+Lang: 136
+Ortiz: 135
+Hilll: 134
+Hills: 130
+Terry: 129
+Becker: 128
+Johns: 128
+Romaguera: 128
+Batz: 127
   
 Top 10 first names:
-1.	Tara: 34
-2.	Andreanne: 32
-3.	Stephania: 31
-4.	Keon: 31
-5.	Manley: 30
-6.	Kayley: 30
-7.	Ulices: 30
-8.	Summer: 30
-9.	Kaycee: 30
-10.	Milo: 29
+Tara: 34
+Andreanne: 32
+Stephania: 31
+Keon: 31
+Manley: 30
+Kayley: 30
+Ulices: 30
+Summer: 30
+Kaycee: 30
+Milo: 29
   
 Modified names list: 
-1.	Jane Nikolaus
-2.	Dejon Simonis
-3.	Kaya McLaughlin
-4.	Jaiden Pfannerstill
-5.	Herta Runolfsdottir
-6.	Nelda Kunze
-7.	Madison Armstrong
-8.	Wade Stanton
-9.	Rebekah Dickinson
-10.	Tracey Schamberger
-11.	Jena Hills
-12.	Gertrude Bauch
-13.	Viviane Shanahan
-14.	Vincenza Graham
-15.	Eusebio Ortiz
-16.	Michaela Muller
-17.	Caleb Cronin
-18.	Mariah Mertz
-19.	Raina Marvin
-20.	Oscar Larkin
-21.	Sallie Douglas
-22.	Alessandra Hoppe
-23.	Jadon Lowe
-24.	Cora Bruen
-25.	Janae Wisoky
+Colin Russel
+Eda Rosenbaum
+Khalil Kozey
+Mohamed Bartoletti
+Garfield Hermiston
+Samanta Botsford
+Raina Crona
+Thad Moen
+Shanie Hintz
+Caesar Ferry
+Broderick Barrows
+Rodger Ortiz
+Zaria Zulauf
+Celia Donnelly
+Otis Altenwerth
+Hans Powlowski
+Mafalda Hagenes
+Paxton Stark
+Elza Thompson
+Mckenna Brown
+Sandrine Runolfsdottir
+Christina Johns
+Bulah Franecki
+Gilda Pollich
+Katelynn Carroll
