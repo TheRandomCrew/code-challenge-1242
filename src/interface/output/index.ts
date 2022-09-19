@@ -1,3 +1,4 @@
+import { ModifiedNamesList } from './../../features/names/class';
 import { Statistics } from "../../features/names";
 
 const writeStatisticsToFile = (statistics: Statistics) => {
@@ -25,4 +26,8 @@ ${statistics.top10FirstNames
   return resultOutput;
 };
 
-export { writeStatisticsToFile };
+const writeModifiedNamesToFile = (modifiedNamesList: ModifiedNamesList) => {
+  return `Modified names list: \n${ ModifiedNamesList.mixNames(modifiedNamesList.uniqueFullNames).join('\n') }` 
+}
+
+export { writeStatisticsToFile, writeModifiedNamesToFile };

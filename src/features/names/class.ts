@@ -57,15 +57,36 @@ export class Statistics {
 }
 
 export class ModifiedNamesList {
-  uniqueFullNames: { firstName: string; lastName: string }[] = [];
+  static #maxNumberOfNames: number;
+
+  constructor(limit?: number) {
+    ModifiedNamesList.#maxNumberOfNames = limit || 25; 
+  }
+
+  uniqueFullNames: { firstName: string, lastName: string }[] = [];
 
   addUniqueFullName(firstName: string, lastName: string) {
-    const isUnique =
-      this.uniqueFullNames.findIndex(
+    const isRepeated =
+      this.uniqueFullNames.some(
         (fullName) =>
           fullName.firstName === firstName || fullName.lastName === lastName
-      ) === -1;
+      );
 
-    if (isUnique) this.uniqueFullNames.push({ firstName, lastName });
+    const isListCompleted = this.uniqueFullNames.length === ModifiedNamesList.#maxNumberOfNames;
+
+    if (!isRepeated && !isListCompleted) this.uniqueFullNames.push({ firstName, lastName });
+  }
+
+  static mixNames(listOfNames: { firstName: string, lastName: string }[]): string[] {
+    if (!listOfNames.length) return [];
+
+    const result: string[] = listOfNames.reduce((result, _currentName, index, names) => {
+      const firstName = names.slice(index)[0].firstName;
+      const lastName = names.slice(index - 1)[0].lastName;
+
+      return [...result, `${lastName}, ${firstName}`];
+    }, [] as string[]);
+
+    return result;
   }
 }
