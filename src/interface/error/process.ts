@@ -1,7 +1,7 @@
 import { Interface } from "readline";
 
 /**
- * Terminate the process in the user's terminal
+ * Finish the process in the user's terminal
  * @param {Interface} lineReader 
  * @param {{ coredump: boolean, timeout: number }} options 
  */
