@@ -1,13 +1,13 @@
 import { NamesState } from ".";
 
-export default class Statistics {
+export class Statistics {
   fullNames: NamesState = {};
   firstNames: NamesState = {};
   lastNames: NamesState = {};
 
   static cardinality(object: NamesState) {
     return Object.keys(object).length;
-  } 
+  }
 
   static top10(object: NamesState) {
     return Object.entries(object)
@@ -15,11 +15,11 @@ export default class Statistics {
         (
           [_prev, prevCount]: [string, unknown],
           [_current, currentCount]: [string, unknown]
-          ) => Number(currentCount) - Number(prevCount)
-          )
-          .slice(0, 10);
+        ) => Number(currentCount) - Number(prevCount)
+      )
+      .slice(0, 10);
   }
-        
+
   addFullName(fullName: string) {
     if (!this.fullNames[fullName]) this.fullNames[fullName] = 0;
     this.fullNames[fullName] += 1;
@@ -53,5 +53,19 @@ export default class Statistics {
 
   get top10FirstNames() {
     return Statistics.top10(this.firstNames);
+  }
+}
+
+export class ModifiedNamesList {
+  uniqueFullNames: { firstName: string; lastName: string }[] = [];
+
+  addUniqueFullName(firstName: string, lastName: string) {
+    const isUnique =
+      this.uniqueFullNames.findIndex(
+        (fullName) =>
+          fullName.firstName === firstName || fullName.lastName === lastName
+      ) === -1;
+
+    if (isUnique) this.uniqueFullNames.push({ firstName, lastName });
   }
 }
