@@ -4,7 +4,7 @@ import { Statistics } from "../../features/names";
 /**
  * Get a Statistics instance and returns a formatted String with the statistics of the names of the list
  * @param {Statistics} statistics 
- * @returns 
+ *
  */
 const writeStatisticsToFile = (statistics: Statistics) => {
   const cardinality = `
