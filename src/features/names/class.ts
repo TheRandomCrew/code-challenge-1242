@@ -82,7 +82,7 @@ export class ModifiedNamesList {
       
       result.push(`${lastName}, ${firstName}`)
     }
-    
+
     return result;
   }
 }
