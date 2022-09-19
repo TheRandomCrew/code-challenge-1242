@@ -9,6 +9,7 @@ The current project consist in a program that process a file with people's names
   - [Run the project](#run-the-project)
       - [For development purposes:](#for-development-purposes)
       - [Ran the compiled program](#ran-the-compiled-program)
+  - [File structure](#file-structure)
 
 ## Technologies
 - [Typescript 4](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html)
@@ -58,3 +59,8 @@ Once you have the program compiled, then you could run the output file using nod
 2. A file is generated in the path `bin/index.js`
 3. I will to run that file: `node bin/index.js input.txt 40`
 
+## File structure
+
+|                                            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![file-structure](docs/file-structure.png) | **src:** In source folder are all the logic of the program, here's where you can change or add new functionalities. In the `src/index.ts` you'll find the main logic of the APP<br/>**features:** In this folder you'll find the business logic of the program.<br/> <ul><li>**files:** Here's the logic to handle files: Read files, lines or write a new file.</li> <li>**names:** In this folder you'll find the logic to handle the names and create the statistics.</li></ul>**interface:** Here's the logic related to the different interfaces of the program, currently we've just a CLI interface, which is creating two new interfaces which are the output (how the output looks) and the errors (how the errors are shown to the user).<br/> |
