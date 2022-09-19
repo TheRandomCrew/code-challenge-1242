@@ -3,28 +3,30 @@ import { lineReader, writeFile } from "./features/files";
 import { onLine, Statistics, ModifiedNamesList } from "./features/names";
 import { checkArgs } from "./interface/cli";
 import { terminate } from "./interface/error/process";
-import { writeModifiedNamesToFile, writeStatisticsToFile } from "./interface/output";
+import {
+  writeModifiedNamesToFile,
+  writeStatisticsToFile,
+} from "./interface/output";
 
 const args = process.argv;
+
+const N = Number(process.argv[3]?.split("N=")[1]) ?? null;
 
 checkArgs(args);
 
 // create object to pass to inLine, it would have state and methods to add names and process them
 const statistics = new Statistics();
-const modifiedNamesList = new ModifiedNamesList();
+const modifiedNamesList = new ModifiedNamesList(N);
 
-lineReader(
-  args[2],
-  (line) => {
-    onLine(
-      line,
-      statistics.addFullName.bind(statistics),
-      statistics.addFirstName.bind(statistics),
-      statistics.addLastName.bind(statistics),
-      modifiedNamesList.addUniqueFullName.bind(modifiedNamesList),
-    );
-  }
-).then(async (lineReader) => {
+lineReader(args[2], (line) => {
+  onLine(
+    line,
+    statistics.addFullName.bind(statistics),
+    statistics.addFirstName.bind(statistics),
+    statistics.addLastName.bind(statistics),
+    modifiedNamesList.addUniqueFullName.bind(modifiedNamesList)
+  );
+}).then(async (lineReader) => {
   let output = writeStatisticsToFile(statistics);
   output += `\n${writeModifiedNamesToFile(modifiedNamesList)}`;
   await writeFile("./output.txt", output);
