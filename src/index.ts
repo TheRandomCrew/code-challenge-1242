@@ -32,6 +32,7 @@ lineReader(inputPath, (line): void => {
 
     try {
       await writeFile(path.join(__dirname, '..', 'output.txt'), output)
+      console.log('Please check your output file')
     } catch (error) {
       console.error(error)
     }
