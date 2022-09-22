@@ -1,3 +1,4 @@
+import path from 'node:path'
 import process from 'node:process'
 import { lineReader, writeFile } from './features/files'
 import { onLine, Statistics, ModifiedNamesList } from './features/names'
@@ -25,12 +26,16 @@ lineReader(inputPath, (line): void => {
     modifiedNamesList.addUniqueFullName.bind(modifiedNamesList)
   )
 })
-  .then((lineReader) => {
+  .then(async (lineReader) => {
     let output = writeStatisticsToFile(statistics)
     output += `\n${writeModifiedNamesToFile(modifiedNamesList)}`
-    writeFile('./output.txt', output)
-      .then(() => console.log('Please check your output file'))
-      .catch((error) => console.error(error))
+
+    try {
+      await writeFile(path.join(__dirname, '..', 'output.txt'), output)
+      console.log('Please check your output file')
+    } catch (error) {
+      console.error(error)
+    }
 
     const exitHandler = terminate(lineReader, {
       coredump: withCoreDump as boolean,

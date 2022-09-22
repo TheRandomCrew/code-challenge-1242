@@ -4,28 +4,28 @@ Unique first name count: 3007
 Unique last name count: 475
   
 Top 10 last names:
-Barton: 143
-Lang: 136
-Ortiz: 135
-Hilll: 134
-Hills: 130
-Terry: 129
-Becker: 128
-Johns: 128
-Romaguera: 128
-Batz: 127
+Barton: 142
+Lang: 135
+Ortiz: 134
+Hilll: 133
+Hills: 129
+Terry: 128
+Becker: 127
+Johns: 127
+Romaguera: 127
+Batz: 126
   
 Top 10 first names:
-Tara: 34
-Andreanne: 32
-Stephania: 31
-Keon: 31
-Manley: 30
-Kayley: 30
-Ulices: 30
-Summer: 30
-Kaycee: 30
-Milo: 29
+Tara: 33
+Andreanne: 31
+Stephania: 30
+Keon: 30
+Manley: 29
+Kayley: 29
+Ulices: 29
+Summer: 29
+Kaycee: 29
+Milo: 28
   
 Modified names list: 
 Stoltenberg, Mckenna
