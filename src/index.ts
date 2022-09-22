@@ -26,12 +26,15 @@ lineReader(inputPath, (line): void => {
     modifiedNamesList.addUniqueFullName.bind(modifiedNamesList)
   )
 })
-  .then((lineReader) => {
+  .then(async (lineReader) => {
     let output = writeStatisticsToFile(statistics)
     output += `\n${writeModifiedNamesToFile(modifiedNamesList)}`
-    writeFile(path.join(__dirname, '..', 'output.txt'), output)
-      .then(() => console.log('Please check your output file'))
-      .catch((error) => console.error(error))
+
+    try {
+      await writeFile(path.join(__dirname, '..', 'output.txt'), output)
+    } catch (error) {
+      console.error(error)
+    }
 
     const exitHandler = terminate(lineReader, {
       coredump: withCoreDump as boolean,
