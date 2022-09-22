@@ -22,7 +22,7 @@ const writeFile = async (
   output: string
 ): Promise<void> => {
   try {
-    await fs.promises.writeFile(filePath, output)
+    fs.writeFileSync(filePath, output)
   } catch (error) {
     throw new FatalError(JSON.stringify(error))
   }
