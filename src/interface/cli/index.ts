@@ -48,7 +48,7 @@ const checkArgs = (args: string[]): Args => {
     }
     if (args[3] !== '') {
       if (args[3].includes('-N') || args[3].includes('-n')) {
-        const N = Number(args[3].split('=')[0])
+        const N = Number(args[3].split('=')[1])
         if (isNaN(N)) {
           console.log(
             'The given value of N is not valid. We will use the default of 25'
