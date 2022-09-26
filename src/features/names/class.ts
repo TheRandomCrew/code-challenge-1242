@@ -39,7 +39,7 @@ export class Statistics {
    * @param {string} fullName
    */
   addFullName (fullName: string): void {
-    if (Number.isNaN(this.fullNames[fullName])) this.fullNames[fullName] = 0
+    if (isNaN(this.fullNames[fullName])) this.fullNames[fullName] = 0
     this.fullNames[fullName] += 1
   }
 
@@ -48,7 +48,7 @@ export class Statistics {
    * @param {string} firstName
    */
   addFirstName (firstName: string): void {
-    if (Number.isNaN(this.firstNames[firstName])) this.firstNames[firstName] = 0
+    if (isNaN(this.firstNames[firstName])) this.firstNames[firstName] = 0
     this.firstNames[firstName] += 1
   }
 
@@ -57,7 +57,7 @@ export class Statistics {
    * @param {string} lastName
    */
   addLastName (lastName: string): void {
-    if (Number.isNaN(this.lastNames[lastName])) this.lastNames[lastName] = 0
+    if (isNaN(this.lastNames[lastName])) this.lastNames[lastName] = 0
     this.lastNames[lastName] += 1
   }
 
