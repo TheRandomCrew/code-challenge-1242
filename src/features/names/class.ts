@@ -16,6 +16,7 @@ export class Statistics {
    * @param {NamesState} object
    */
   static cardinality(object: NamesState): number {
+    if (typeof object !== 'object') return 0
     return Object.keys(object).length
   }
 
@@ -24,6 +25,7 @@ export class Statistics {
    * @param {NamesState} object
    */
   static top10(object: NamesState): Array<[string, number]> {
+    if (this.cardinality(object) === 0) return []
     return Object.entries(object)
       .sort(
         (

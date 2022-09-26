@@ -1,5 +1,7 @@
 import { Statistics, ModifiedNamesList } from './class'
-interface NamesState { [key: string]: number }
+interface NamesState {
+  [key: string]: number
+}
 
 /**
  * Receive a line, get the lastName and firstName and pass it through some callbacks

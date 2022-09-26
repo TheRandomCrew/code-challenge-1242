@@ -2,7 +2,7 @@
 Unique full name count: 49157
 Unique first name count: 3007
 Unique last name count: 475
-  
+
 Top 10 last names:
 Barton: 143
 Lang: 136
@@ -14,7 +14,7 @@ Becker: 128
 Johns: 128
 Romaguera: 128
 Batz: 127
-  
+
 Top 10 first names:
 Tara: 34
 Andreanne: 32
@@ -26,7 +26,7 @@ Ulices: 30
 Summer: 30
 Kaycee: 30
 Milo: 29
-  
+
 Modified names list: 
 Stoltenberg, Mckenna
 Graham, Garfield
