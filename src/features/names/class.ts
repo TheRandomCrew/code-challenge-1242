@@ -14,8 +14,8 @@ export class Statistics {
   /**
    * Get the cardinality of an object
    * @param {NamesState} object
-  */
-  static cardinality (object: NamesState): number {
+   */
+  static cardinality(object: NamesState): number {
     return Object.keys(object).length
   }
 
@@ -23,7 +23,7 @@ export class Statistics {
    * Receive an object whose values are numbers, and return a sorted descending list of top 10 bigger values
    * @param {NamesState} object
    */
-  static top10 (object: NamesState): Array<[string, number]> {
+  static top10(object: NamesState): Array<[string, number]> {
     return Object.entries(object)
       .sort(
         (
@@ -38,7 +38,7 @@ export class Statistics {
    * Create a new key in the fullNames' state, with the number of times that the key have been added to the object
    * @param {string} fullName
    */
-  addFullName (fullName: string): void {
+  addFullName(fullName: string): void {
     if (isNaN(this.fullNames[fullName])) this.fullNames[fullName] = 0
     this.fullNames[fullName] += 1
   }
@@ -47,7 +47,7 @@ export class Statistics {
    * Create a new key in the firstNames' state, with the number of times that the key have been added to the object
    * @param {string} firstName
    */
-  addFirstName (firstName: string): void {
+  addFirstName(firstName: string): void {
     if (isNaN(this.firstNames[firstName])) this.firstNames[firstName] = 0
     this.firstNames[firstName] += 1
   }
@@ -56,7 +56,7 @@ export class Statistics {
    * Create a new key in the lastNames' state, with the number of times that the key have been added to the object
    * @param {string} lastName
    */
-  addLastName (lastName: string): void {
+  addLastName(lastName: string): void {
     if (isNaN(this.lastNames[lastName])) this.lastNames[lastName] = 0
     this.lastNames[lastName] += 1
   }
@@ -64,35 +64,35 @@ export class Statistics {
   /**
    * Get the cardinality of fullNames object
    */
-  get uniqueFullNamesCount (): Number {
+  get uniqueFullNamesCount(): Number {
     return Statistics.cardinality(this.fullNames)
   }
 
   /**
    * Get the cardinality of firstNames object
    */
-  get uniqueFirstNamesCount (): Number {
+  get uniqueFirstNamesCount(): Number {
     return Statistics.cardinality(this.firstNames)
   }
 
   /**
    * Get the cardinality of lastNames object
    */
-  get uniqueLastNamesCount (): Number {
+  get uniqueLastNamesCount(): Number {
     return Statistics.cardinality(this.lastNames)
   }
 
   /**
    * Get a descending list of top 10 more used lastNames
    */
-  get top10LastNames (): Array<[string, number]> {
+  get top10LastNames(): Array<[string, number]> {
     return Statistics.top10(this.lastNames)
   }
 
   /**
    * Get a descending list of top 10 more used FirstNames
    */
-  get top10FirstNames (): Array<[string, number]> {
+  get top10FirstNames(): Array<[string, number]> {
     return Statistics.top10(this.firstNames)
   }
 }
@@ -103,18 +103,18 @@ export class Statistics {
 export class ModifiedNamesList {
   static #maxNumberOfNames: number
 
-  constructor (limit?: number) {
+  constructor(limit?: number) {
     ModifiedNamesList.#maxNumberOfNames = limit ?? 25
   }
 
-  uniqueFullNames: Array<{ firstName: string, lastName: string }> = []
+  uniqueFullNames: Array<{ firstName: string; lastName: string }> = []
 
   /**
    * Add a fullName on the list just in case the firstName and the lastName weren't already on the list
    * @param {string} firstName
    * @param {string} lastName
    */
-  addUniqueFullName (firstName: string, lastName: string): void {
+  addUniqueFullName(firstName: string, lastName: string): void {
     const isRepeated = this.uniqueFullNames.some(
       (fullName) =>
         fullName.firstName === firstName || fullName.lastName === lastName
@@ -123,15 +123,17 @@ export class ModifiedNamesList {
     const isListCompleted =
       this.uniqueFullNames.length === ModifiedNamesList.#maxNumberOfNames
 
-    if (!isRepeated && !isListCompleted) { this.uniqueFullNames.push({ firstName, lastName }) }
+    if (!isRepeated && !isListCompleted) {
+      this.uniqueFullNames.push({ firstName, lastName })
+    }
   }
 
   /**
    * Combine the list of names returning a new list  mix of firstNames with lastNames
    * @param {{ firstName: string, lastName: string }} listOfNames
-  */
-  static mixNames (
-    listOfNames: Array<{ firstName: string, lastName: string }>
+   */
+  static mixNames(
+    listOfNames: Array<{ firstName: string; lastName: string }>
   ): string[] {
     if (listOfNames.length === 0) return []
 
